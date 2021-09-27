@@ -20,7 +20,8 @@ namespace Modul2HW6
             var serviceProvider = new ServiceCollection()
             .AddTransient<ICarProvider, CarProvider>()
             .AddTransient<ICabstandService, CabstandService>()
-            .AddSingleton<ISortService, SortService>()
+            .AddTransient<ISortService, SortService>()
+            .AddTransient<IComparer, CarComparer>()
             .AddTransient<AppStarter>()
             .BuildServiceProvider();
             var appStarter = serviceProvider.GetService<AppStarter>();

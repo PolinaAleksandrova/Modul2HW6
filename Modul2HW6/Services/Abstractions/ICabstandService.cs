@@ -11,9 +11,7 @@ namespace Modul2HW6.Services.Abstractions
     public interface ICabstandService
     {
         Car[] Cars { get; }
-        int Capacity { get; }
         int TotalPrice { get; }
-        void Add(Car cars);
-        void Remove();
+        bool Add(Car cars);
     }
 }

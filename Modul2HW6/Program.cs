@@ -8,6 +8,6 @@ namespace Modul2HW6
        {
             Starter starter = new Starter();
             starter.StartApplication();
-        }
+       }
     }
 }

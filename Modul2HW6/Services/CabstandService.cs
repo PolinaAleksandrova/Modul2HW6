@@ -10,16 +10,12 @@ namespace Modul2HW6.Services
 {
     public class CabstandService : ICabstandService
     {
-        private int _iterator = 0;
-
-        public CabstandService(int capacity)
+        public CabstandService()
         {
-            Cars = new Car[capacity];
-            Capacity = capacity;
+            Cars = new Car[0];
         }
 
-        public Car[] Cars { get; }
-        public int Capacity { get; }
+        public Car[] Cars { get; set; }
 
         public int TotalPrice
         {
@@ -35,17 +31,20 @@ namespace Modul2HW6.Services
             }
         }
 
-        public void Add(Car cars)
+        public bool Add(Car car)
         {
-            if (_iterator < Capacity)
-            {
-                Cars[_iterator++] = cars;
-            }
-        }
+            var cars = Cars;
 
-        public void Remove()
-        {
-            Cars[_iterator--] = null;
+            Cars = new Car[Cars.Length + 1];
+
+            for (var i = 0; i < Cars.Length - 1; i++)
+            {
+                Cars[i] = cars[i];
+            }
+
+            Cars[Cars.Length - 1] = car;
+
+            return true;
         }
     }
 }

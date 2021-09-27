@@ -11,17 +11,13 @@ namespace Modul2HW6.Extensions
 {
     public static class CabstandExtensions
     {
-        public static Car FindByParameters(this Car[] cars, CategoryType categoryType, string name, OriginCountry originCountry)
+        public static Car FindByParameters(this Car[] cars, CategoryType categoryType, OriginCountry originCountry)
         {
             foreach (var item in cars)
             {
-                if (item.Name == name && item.CategoryType == categoryType && item.OriginCountry == originCountry)
+                if (item.CategoryType == categoryType && item.OriginCountry == originCountry)
                 {
                     return item;
-                }
-                else
-                {
-                    return null;
                 }
             }
 

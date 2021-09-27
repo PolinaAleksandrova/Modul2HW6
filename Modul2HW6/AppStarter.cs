@@ -20,7 +20,6 @@ namespace Modul2HW6
         private readonly ISortService _sortService;
         private readonly ICarProvider _carProvider;
         private readonly IComparer _comparer;
-
         public AppStarter(ICabstandService cabstandService, ISortService sortService, ICarProvider carProvider, IComparer comparer)
         {
             _cabstandService = cabstandService;
@@ -32,14 +31,14 @@ namespace Modul2HW6
         public void Run()
         {
             var random = new Random();
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i < 9; i++)
             {
                 _cabstandService.Add(_carProvider.Cars[random.Next(_carProvider.Cars.Length)]);
             }
 
             var totalPrice = _cabstandService.TotalPrice;
             _sortService.SortByFuelFlow(_cabstandService.Cars, _comparer);
-            var findCar = _cabstandService.Cars.FindByParameters(CategoryType.E, "MercedesBenz W124", OriginCountry.Germany);
+            var findCar = _cabstandService.Cars.FindByParameters(CategoryType.E, OriginCountry.Germany);
         }
     }
 }
